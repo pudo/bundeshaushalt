@@ -1,8 +1,9 @@
 #coding: utf-8
 import sys
-from csv import DictReader, DictWriter, field_size_limit
 from pprint import pprint
 from collections import defaultdict
+
+from webstore.client import URL as WebStore
 
 # color range generator:    
 def hex_to_tuple(val, alpha=False):
@@ -29,49 +30,37 @@ def _color_range(color, slices, var=70.0):
                             color_part(cv[1], n), 
                             color_part(cv[2], n)))
 
-def process_file(infile, outfile, key_column, color_column, subkey_column, subcolor_column):
-    field_size_limit(100000000)
-    infile = open(infile, 'rb')
+def process_file(table, key_column, color_column, subkey_column, subcolor_column):
     children = defaultdict(set)
     key_colors = {}
-    incsv = DictReader(infile)
-    for row in incsv:
+    for row in table:
         key = row.get(key_column)
         key_colors[key] = row.get(color_column)
         children[key].add(row.get(subkey_column))
-    pprint(children)
-    pprint(key_colors)
     sub_colors = dict()
     for key in children.keys():
         gen = _color_range(key_colors.get(key), len(children[key]))
         for sub, col in zip(children[key], gen):
             sub_colors[(key, sub)] = col
-    pprint(sub_colors)
-    infile.seek(0)
-    outfile = open(outfile, 'wb')
-    incsv = DictReader(infile)
-    headers = list(incsv.fieldnames) + [subcolor_column]
-    outcsv = DictWriter(outfile, headers)
-    outcsv.writerow(dict(zip(headers, headers)))
-    for row in incsv:
+    for row in table:
          ks = (row.get(key_column), row.get(subkey_column))
          row[subcolor_column] = sub_colors[ks]
          #pprint(row)
-         outcsv.writerow(row)
-    outfile.close()
-    infile.close()
+         table.writerow(row, unique_columns=['__id__'])
 
 if __name__ == '__main__':
-    fn = sys.argv[1]
-    process_file(fn, fn + "c1", "ep_id", "ep_color", "kp_id", "kp_color")
-    process_file(fn + "c1", fn + "c2", "ep_id", "ep_color", "tgr_id", "tgr_color")
-    process_file(fn + "c2", fn + "c3", "ep_id", "ep_color", "id", "color")
-    process_file(fn + "c3", fn + "c4", "hauptfunktion_id", "hauptfunktion_color", 
+    assert len(sys.argv)==2, "Need argument: webstore-url!"
+    db, table = WebStore(sys.argv[1], "raw")
+
+    process_file(table, "ep_id", "ep_color", "kp_id", "kp_color")
+    process_file(table, "ep_id", "ep_color", "tgr_id", "tgr_color")
+    process_file(table, "ep_id", "ep_color", "id", "color")
+    process_file(table, "hauptfunktion_id", "hauptfunktion_color", 
             "oberfunktion_id", "oberfunktion_color")
-    process_file(fn + "c4", fn + "c5", "oberfunktion_id", "oberfunktion_color", 
+    process_file(table, "oberfunktion_id", "oberfunktion_color", 
             "funktion_id", "funktion_color")
-    process_file(fn + "c5", fn + "c6", "hauptgruppe_id", "hauptgruppe_color", 
+    process_file(table, "hauptgruppe_id", "hauptgruppe_color", 
             "obergruppe_id", "obergruppe_color")
-    process_file(fn + "c6", fn + "colorized", "obergruppe_id", "obergruppe_color", 
+    process_file(table, "obergruppe_id", "obergruppe_color", 
             "gruppe_id", "gruppe_color")
 

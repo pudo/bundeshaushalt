@@ -214,3 +214,5 @@ if __name__ == '__main__':
     db, table = WebStore(sys.argv[1], "raw")
     for year in [2005, 2006, 2007, 2008, 2009, 2010, 2011]:
         load_budget(BASE_URL, year, table)
+
+
