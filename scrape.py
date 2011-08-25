@@ -54,7 +54,6 @@ def load_budget(base_url, year, table):
             sys.stdout.write('.')
             sys.stdout.flush()
     table.writerows(rows)
-    csv_fh.close()
 
 def expand_classifications(row):
     id = row['id']
@@ -213,5 +212,5 @@ def parse_section(section, context):
 if __name__ == '__main__': 
     assert len(sys.argv)==2, "Need argument: webstore-url!"
     db, table = WebStore(sys.argv[1], "raw")
-    for year in [2011]: #[2005, 2006, 2007, 2008, 2009, 2010, 2011]:
+    for year in [2005, 2006, 2007, 2008, 2009, 2010, 2011]:
         load_budget(BASE_URL, year, table)
