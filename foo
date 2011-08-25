@@ -1,0 +1,55 @@
+- amount
+- remarks
+- description
+- data_year
+kp_id
+- ep_id
+- year
+- flexible
+- id
+kp_label
+- financial_type
+kp_pdf
+kp_url
+ep_url
+- ep_label
+tgr_label
+- label
+- url
+- ep_pdf
+- pdf
+- flow
+tgr_id
+- ep_color
+hauptgruppe_id
+hauptgruppe_label
+hauptgruppe_color
+hauptgruppe_desc
+obergruppe_id
+obergruppe_label
+obergruppe_color
+obergruppe_desc
+gruppe_id
+gruppe_label
+gruppe_color
+gruppe_desc
+hauptfunktion_id
+hauptfunktion_label
+hauptfunktion_color
+hauptfunktion_desc
+oberfunktion_id
+oberfunktion_label
+oberfunktion_color
+oberfunktion_desc
+funktion_id
+funktion_label
+funktion_color
+funktion_desc
+kp_color
+tgr_color
+- color
+oberfunktion_color
+funktion_color
+obergruppe_color
+gruppe_color
+

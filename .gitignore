@@ -1,0 +1,5 @@
+full/*
+final/*
+csv/*
+*.csv
+.DS_Store
