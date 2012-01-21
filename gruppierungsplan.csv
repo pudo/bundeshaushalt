@@ -1,0 +1,473 @@
+ID,Name,Color,Description
+000,Einnahmen aus Steuern und steuerähnlichen Abgaben sowie EU-Eigenmittel,#7A2077
+010,Gemeinschaftssteuern und Gewerbesteuerumlage
+011,Lohnsteuer
+012,Veranlagte Einkommensteuer
+013,Nicht veranlagte Steuern vom Ertrag (ohne Abgeltungssteuer auf Zins- und Veräußerungserträge)
+014,Körperschaftsteuer
+015,Umsatzsteuer
+016,Einfuhrumsatzsteuer
+017,Gewerbesteuerumlage
+018,Abgeltungssteuer auf Zins- und Veräußerungserträge
+020,EU-Eigenmittel
+030,Bundessteuern
+038,Kraftfahrzeugsteuer
+040,Bundessteuern
+050,Landessteuern
+051,Vermögensteuer
+052,Erbschaftsteuer
+053,Grunderwerbsteuer
+055,Totalisatorsteuer
+056,Andere Rennwettsteuern
+057,Lotteriesteuer
+059,Feuerschutzsteuer
+060,Landessteuern
+061,Biersteuer
+069,"Sonstige Landessteuern, Sammeltitel für Steuern, für die wegen ihres geringen Aufkommens der nach dem Gruppierungsplan vorgesehene Titel nicht eingerichtet wird."
+070,Gemeindesteuern
+071,Gemeindeanteil an der Lohnsteuer und der veranlagten Einkommensteuer
+072,Grundsteuer A
+073,Grundsteuer B
+075,Gewerbesteuer
+076,Gemeindeanteil an der Umsatzsteuer
+077,"Gewerbesteuerumlage, die an den Bund und an die Länderebene des Stadtstaates gezahlt wird. Es erfolgt ein Nachweis mit negativem Vorzeichen."
+078,Gemeindeanteil an der Abgeltungssteuer auf Zins- und Veräußerungserträge
+080,Gemeindesteuern
+081,Vergnügungsteuer für die Vorführung von Bildstreifen
+082,Sonstige Vergnügungsteuer (z.B. Spielgerätesteuer)
+083,Hundesteuer
+084,Getränkesteuer
+086,Schankerlaubnissteuer
+087,Jagd- und Fischereisteuer
+089,Sonstige Gemeindesteuern
+090,Steuerähnliche Abgaben
+093,Abgaben von Spielbanken
+099,Sonstige steuerähnliche Abgaben
+100,"Verwaltungseinnahmen, Einnahmen aus Schuldendienst und dgl. ",#D32645
+110,Verwaltungseinnahmen
+111,"Gebühren, sonstige Entgelte"
+112,Geldstrafen und Geldbußen
+119,Sonstige Verwaltungseinnahmen
+120,Einnahmen aus wirtschaftlicher Tätigkeit und aus Vermögen (ohne Zinsen)
+121,Gewinne aus Unternehmen und Beteiligungen
+122,Konzessionsabgaben
+123,"Einnahmen aus Lotterie, Lotto und Toto"
+124,Mieten und Pachten
+125,Erlöse aus der Veräußerung von beweglichen Sachen und Diensten  aus wirtschaftlicher Tätigkeit
+129,Sonstige Einnahmen aus wirtschaftlicher Tätigkeit und aus Vermögen
+130,"Erlöse aus der Veräußerung von Gegenständen, Kapitalrückzahlungen"
+131,Erlöse aus der Veräußerung von unbeweglichen Sachen
+132,Erlöse aus der Veräußerung von beweglichen Sachen
+133,Erlöse aus der Veräußerung von Beteiligungen und sonstigem Kapitalvermögen
+134,Kapitalrückzahlungen
+140,Einnahmen aus der Inanspruchnahme von Gewährleistungen
+141,Einnahmen aus der Inanspruchnahme von Gewährleistungen aus dem Inland
+146,Einnahmen aus der Inanspruchnahme von Gewährleistungen aus dem Ausland
+150,Zinseinnahmen aus dem öffentlichen Bereich
+151,Zinseinnahmen vom Bund
+152,Zinseinnahmen von Ländern
+153,Zinseinnahmen von Gemeinden und Gemeindeverbänden
+154,Zinseinnahmen von Sondervermögen
+156,Zinseinnahmen von Sozialversicherungsträgern sowie von der Bundesanstalt für Arbeit
+157,Zinseinnahmen von Zweckverbänden
+160,Zinseinnahmen aus sonstigen Bereichen
+161,Zinseinnahmen von öffentlichen Unternehmen und Einrichtungen
+162,Sonstige Zinseinnahmen aus dem Inland
+166,Zinseinnahmen aus dem Ausland
+170,Darlehensrückflüsse aus dem öffentlichen Bereich
+171,Darlehensrückflüsse vom Bund
+172,Darlehensrückflüsse von Ländern
+173,Darlehensrückflüsse von Gemeinden und Gemeindeverbänden
+174,Darlehensrückflüsse von Sondervermögen
+176,Darlehensrückflüsse von Sozialversicherungsträgern sowie von der Bundesanstalt für Arbeit
+177,Darlehensrückflüsse von Zweckverbänden
+180,Darlehensrückflüsse aus sonstigen Bereichen
+181,Darlehensrückflüsse von öffentlichen Unternehmen und Einrichtungen
+182,Sonstige Darlehensrückflüsse aus dem Inland
+186,Darlehensrückflüsse aus dem Ausland
+200,Einnahmen aus Zuweisungen und Zuschüssen mit Ausnahme für Investitionen,#44913D
+210,Allgemeine (nicht zweckgebundene) Zuweisungen aus dem öffentlichen Bereich)
+211,Allgemeine Zuweisungen vom Bund
+212,Allgemeine Zuweisungen von Ländern
+213,Allgemeine Zuweisungen von Gemeinden und Gemeindeverbänden
+214,Allgemeine Zuweisungen von Sondervermögen
+216,Allgemeine Zuweisungen von Sozialversicherungsträgern sowie von der Bundesanstalt für Arbeit
+217,Allgemeine Zuweisungen von Zweckverbänden
+220,Schuldendiensthilfen aus dem öffentlichen Bereich
+221,Schuldendiensthilfen vom Bund
+222,Schuldendiensthilfen von Ländern
+223,Schuldendiensthilfen von Gemeinden und Gemeindeverbänden
+224,Schuldendiensthilfen von Sondervermögen
+226,Schuldendiensthilfen von Sozialversicherungs- trägern sowie von der Bundesanstalt für Arbeit
+227,Schuldendiensthilfen von Zweckverbänden
+230,Sonstige (zweckgebundene) Zuweisungen aus dem öffentlichen Bereich
+231,Sonstige Zuweisungen vom Bund
+232,Sonstige Zuweisungen von Ländern
+233,Sonstige Zuweisungen von Gemeinden und Gemeindeverbänden
+234,sonstige Zuweisungen von Sondervermögen
+235,Sonstige Zuweisungen von Sozialversicherungsträgern sowie von der Bundesanstalt für Arbeit
+236,Erstattungen von Sozialversicherungsträgern sowie der Bundesanstalt für Arbeit
+237,Sonstige Zuweisungen von Zweckverbänden
+260,Schuldendiensthilfen und Erstattungen von Verwaltungsausgaben aus sonstigen Bereichen
+261,Schuldendiensthilfen und Erstattungen von Verwaltungsausgaben aus dem Inland
+266,Schuldendiensthilfen Erstattungen von Verwaltungsausgaben aus dem Ausland (soweit nicht von der EU)
+270,Zuschüsse von der EU
+271,Erstattungen von der EU
+272,Sonstige Zuschüsse von der EU
+280,Sonstige Zuschüsse aus sonstigen Bereichen
+281,Sonstige Erstattungen aus dem Inland
+282,Sonstige Zuschüsse aus dem Inland
+286,Sonstige Erstattungen aus dem Ausland (soweit nicht von der EU)
+287,Sonstige Zuschüsse aus dem Ausland (soweit nicht von der EU)
+290,"Vermögensübertragungen, soweit nicht für Investitionen"
+291,"Vermögensübertragungen vom Bund, soweit nicht Investitionszuweisungen"
+292,"Vermögensübertragungen von Ländern, soweit nicht Investitionszuweisungen"
+293,"Vermögensübertragungen von Gemeinden und Gemeindeverbänden, soweit nicht Investitionszuweisungen"
+297,"Vermögensübertragungen von Unternehmen, soweit nicht Investitionszuschüsse"
+298,"Vermögensübertragungen von Sonstigen aus dem Inland, soweit nicht Investitionszuschüsse"
+299,"Vermögensübertragungen aus dem Ausland, soweit nicht Investitionszuschüsse"
+300,"Einnahmen aus Schuldenaufnahmen, aus Zuweisungen und Zuschüssen für Investitionen,  
+besondere Finanzierungseinnahmen",#A5B425
+310,"Schuldenaufnahmen bei Gebietskörperschaften, Sondervermögen und gebietskörperschaftlichen Zusammenschlüssen"
+311,Schuldenaufnahmen beim Bund
+312,Schuldenaufnahmen bei Ländern
+313,Schuldenaufnahmen bei Gemeinden und Gemeindeverbänden
+314,Schuldenaufnahmen bei Sondervermögen
+317,Schuldenaufnahmen bei Zweckverbänden
+320,Schuldenaufnahmen am Kreditmarkt
+321,Schuldenaufnahmen bei öffentlichen Unternehmen und Einrichtungen
+322,Schuldenaufnahmen bei Sozialversicherungsträgern und der Bundesanstalt für Arbeit
+325,Schuldenaufnahmen auf dem sonstigen inländischen Kreditmarkt
+326,Schuldenaufnahmen im Ausland
+330,Zuweisungen für Investitionen aus dem öffentlichen Bereich
+331,Zuweisungen für Investitionen vom Bund
+332,Zuweisungen für Investitionen von Ländern
+333,Zuweisungen für Investitionen von Gemeinden und Gemeindeverbänden
+334,Zuweisungen für Investitionen von Sondervermögen
+336,Zuweisungen für Investitionen von Sozialversicherungsträgern sowie von der Bundesanstalt für Arbeit
+337,Zuweisungen für Investitionen von Zweckverbänden
+340,Beiträge und sonstige Zuschüsse für Investitionen
+341,Beiträge
+342,Sonstige Zuschüsse für Investitionen aus dem Inland
+346,Zuschüsse für Investitionen von der EU
+347,Sonstige Zuschüsse für Investitionen aus dem Ausland (soweit nicht von der EU)
+350,"Entnahmen aus Rücklagen, Fonds und Stöcken"
+351,Entnahmen aus der Ausgleichsrücklage
+352,Entnahmen aus der Betriebsmittelrücklage
+353,Entnahmen aus der Schuldendienstrücklage
+354,Entnahmen aus der Bürgschaftssicherungsrücklage
+355,Entnahmen aus der Konjunkturausgleichsrücklage
+356,Entnahmen aus Fonds und Stöcken
+359,Sonstige
+360,Einnahmen aus Überschüssen der Vorjahre
+361,Einnahmen aus Überschüssen der Vorjahre
+370,Globale Mehr- und Mindereinnahmen
+371,Globale Mehreinnahmen
+372,Globale Mindereinnahmen
+380,Haushaltstechnische Verrechnungen
+381,Verrechnungen zwischen Kapiteln
+382,Durchlaufende Posten
+389,Sonstige haushaltstechnische Verrechnungen
+400,Personalausgaben,#CA221D
+410,Aufwendungen für Abgeordnete und ehrenamtlich Tätige
+411,Aufwendungen für Abgeordnete
+412,Aufwendungen für ehrenamtlich Tätige
+420,Bezüge und Nebenleistungen
+421,Amtsbezüge der Mitglieder des Senats
+422,"Bezüge und Nebenleistungen der Beamtinnen, Beamten, Richterinnen und Richter"
+424,Zuführung an die Versorgungsrücklage
+425,Vergütungen der Angestellten
+426,Löhne der Arbeiterinnen und Arbeiter
+427,"Beschäftigungsentgelte, Aufwendungen für nebenamtlich und nebenberuflich Tätige"
+428,Entgelte der Arbeitnehmerinnen und Arbeitnehmer
+429,Nicht aufteilbare Personalausgaben
+430,Versorgungsbezüge und dgl.
+431,Ruhegehälter der ehemaligen Mitglieder des Senats
+432,"Versorgungsbezüge der Beamtinnen, Beamten, Richterinnen und Richter"
+434,Zuführung an die Versorgungsrücklage
+435,Versorgungsbezüge der Angestellten
+436,Versorgungsbezüge der Arbeiterinnen und Arbeiter
+438,Versorgungsbezüge der Arbeitnehmerinnen und Arbeitnehmer
+439,Sonstige Versorgungsbezüge
+440,"Beihilfen, Unterstützungen und dgl."
+441,"Beihilfen, soweit nicht für Versorgungsempfängerinnen und Versorgungsempfänger"
+443,Fürsorgeleistungen und Unterstützungen
+446,"Beihilfen für Versorgungsempfängerinnen, Versorgungsempfänger und dgl."
+450,Sonstige personalbezogene Ausgaben
+451,Zuschüsse zur Gemeinschaftsverpflegung und zu Gemeinschaftsveranstaltungen sowie für soziale Einrichtungen
+452,Personalbezogene Zahlungen an die Sozialversicherungsträger (soweit nicht unter Obergruppen 41 bis 44 erfasst)
+453,"Trennungsgeld, Umzugskostenvergütungen"
+459,Sonstige personalbezogene Ausgaben (soweit nicht bei den Gruppen 451 - 453)
+460,Globale Mehr- und Minderausgaben für Personalausgaben
+461,Globale Mehrausgaben für Personalausgaben
+462,Globale Minderausgaben für Personalausgaben
+500,Sächliche Verwaltungsausgaben und Ausgaben für den Schuldendienst,#E29826
+510,Sächliche Verwaltungsausgaben
+511,"Geschäftsbedarf und Kommunikation sowie Geräte, Ausstattungs- und Ausrüstungsgegenstände, sonstige Gebrauchsgegenstände"
+514,"Haltung von Fahrzeugen, Verbrauchsmittel, Dienst- und Schutzkleidung und dgl."
+517,Bewirtschaftung der Grundstücke
+518,Mieten und Pachten
+519,Unterhaltung der Grundstücke
+520,Sächliche Verwaltungsausgaben
+521,Unterhaltung des sonstigen unbeweglichen Vermögens
+523,Kunst- und wissenschaftliche Sammlungen und Bibliotheken
+525,"Lehr- und Lernmittel, Aus- und Fortbildung"
+526,"Sachverständige, Gerichts- und ähnliche Kosten"
+527,Dienstreisen
+529,Verfügungsmittel
+530,Sächliche Verwaltungsausgaben
+531,Veröffentlichungen
+532,"Steuern, Abgaben und Versicherungen"
+533,Sonstige sächliche Verwaltungsausgaben
+534,Sonstige sächliche Verwaltungsausgaben
+535,Sonstige sächliche Verwaltungsausgaben
+536,Sonstige sächliche Verwaltungsausgaben
+537,Sonstige sächliche Verwaltungsausgaben
+538,Sonstige sächliche Verwaltungsausgaben
+539,Sonstige sächliche Verwaltungsausgaben
+540,Sächliche Verwaltungsausgaben
+540,Sonstige sächliche Verwaltungsausgaben
+541,Sonstige sächliche Verwaltungsausgaben
+542,Sonstige sächliche Verwaltungsausgaben
+543,Sonstige sächliche Verwaltungsausgaben
+544,Sonstige sächliche Verwaltungsausgaben
+545,Sonstige sächliche Verwaltungsausgaben
+546,Sonstige sächliche Verwaltungsausgaben
+547,Nicht aufteilbare sächliche Verwaltungsausgaben
+548,Globale Mehrausgaben für sächliche Verwaltungsausgaben
+549,Globale Minderausgaben für sächliche Verwaltungsausgaben
+560,"Zinsausgaben an Gebietskörperschaften, Sondervermögen und gebietskörperschaftliche Zusammenschlüssen"
+561,Zinsausgaben an Bund
+562,Zinsausgaben an Länder
+563,Zinsausgaben an Gemeinden und Gemeindeverbände
+564,Zinsausgaben an Sondervermögen
+567,Zinsausgaben an Zweckverbände
+570,Zinsausgaben an Kreditmarkt
+571,Zinsausgaben an öffentliche Unternehmen und Einrichtungen
+572,Zinsausgaben an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+573,Zinsausgaben für Ausgleichsforderungen
+575,Zinsausgaben an sonstigen inländischen Kreditmarkt
+576,Zinsausgaben an Ausland
+580,"Tilgungsausgaben an Gebietskörperschaften, Sondervermögen und gebietskörperschaftliche Zusammenschlüsse"
+581,Tilgungsausgaben an Bund
+582,Tilgungsausgaben an Länder
+583,Tilgungsausgaben an Gemeinden und Gemeindeverbände
+584,Tilgungsausgaben an Sondervermögen
+587,Tilgungsausgaben an Zweckverbände
+590,Tilgungsausgaben an Kreditmarkt
+591,Tilgungsausgaben an öffentliche Unternehmen und Einrichtungen
+592,Tilgungsausgaben an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+593,Tilgungsausgaben für Ausgleichsforderungen
+595,Tilgungsausgaben an sonstigen inländischen Kreditmarkt
+596,Tilgungsausgaben an Ausland
+600,Ausgaben für Zuweisungen und Zuschüsse mit Ausnahme für Investitionen,#E29826
+610,Allgemeine (nicht zweckgebundene) Zuweisungen an öffentlichen Bereich
+611,Allgemeine Zuweisungen an Bund
+612,Allgemeine Zuweisungen an Länder
+613,Allgemeine Zuweisungen an Gemeinden und Gemeindeverbände
+614,Allgemeine Zuweisungen an Sondervermögen
+616,Allgemeine Zuweisungen an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+617,Allgemeine Zuweisungen an Zweckverbände
+620,Schuldendiensthilfen an öffentlichen Bereich
+621,Schuldendiensthilfen an Bund
+622,Schuldendiensthilfen an Länder
+623,Schuldendiensthilfen an Gemeinden und Gemeindeverbände
+624,Schuldendiensthilfen an Sondervermögen
+626,Schuldendiensthilfen an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+627,Schuldendiensthilfen an Zweckverbände
+630,Sonstige (zweckgebundene) Zuweisungen an öffentlichen Bereich
+631,Sonstige Zuweisungen an Bund
+632,Sonstige Zuweisungen an Länder
+633,Sonstige Zuweisungen an Gemeinden und Gemeindeverbände
+634,Sonstige Zuweisungen an Sondervermögen
+636,Sonstige Zuweisungen an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+637,Sonstige Zuweisungen an Zweckverbände
+660,Schuldendiensthilfen an sonstige Bereiche
+661,Schuldendiensthilfen an öffentliche Unternehmen
+662,Schuldendiensthilfen an private Unternehmen
+663,Schuldendiensthilfen an Sonstige im Inland
+664,Schuldendiensthilfen an öffentliche Einrichtungen
+666,Schuldendiensthilfen an Ausland
+670,Erstattungen für laufende Zwecke an sonstige Bereiche
+671,Erstattungen an Inland
+676,Erstattungen an Ausland
+680,Sonstige Zuschüsse für laufende Zwecke an sonstige Bereiche
+681,"Renten, Unterstützungen und sonstige Geldleistungen an natürliche Personen"
+682,Zuschüsse für laufende Zwecke an öffentliche Unternehmen (soweit nicht unter 661)
+683,Zuschüsse für laufende Zwecke an private Unternehmen (soweit nicht unter 662)
+684,Zuschüsse für laufende Zwecke an soziale oder ähnliche Einrichtungen (ohne öffentliche Einrichtungen)
+685,Zuschüsse für laufende Zwecke an öffentliche Einrichtungen
+686,Sonstige Zuschüsse für laufende Zwecke im Inland
+687,Zuschüsse für laufende Zwecke im Ausland (soweit nicht an die EU)
+688,Abführung der Eigenmittel an die EU
+690,"Vermögensübertragungen, soweit nicht für Investitionen"
+691,"Vermögensübertragungen an Bund, soweit nicht Investitionszuweisungen"
+692,"Vermögensübertragungen an Länder, soweit nicht Investitionszuweisungen"
+693,"Vermögensübertragungen an Gemeinden und Gemeindeverbände, soweit nicht Investitionszuweisungen"
+697,"Vermögensübertragungen an Unternehmen, soweit nicht Investitionszuschüsse"
+698,"Vermögensübertragungen an Sonstige im Inland, soweit nicht Investitionszuschüsse"
+699,"Vermögensübertragungen an Ausland, soweit nicht Investitionszuschüsse"
+700,Baumaßnahmen,#3F93E1
+700,Hochbaumaßnahmen
+701,Hochbaumaßnahmen
+702,Hochbaumaßnahmen
+703,Hochbaumaßnahmen
+704,Hochbaumaßnahmen
+705,Hochbaumaßnahmen
+706,Hochbaumaßnahmen
+707,Hochbaumaßnahmen
+708,Hochbaumaßnahmen
+709,Hochbaumaßnahmen
+710,Hochbaumaßnahmen
+710,Hochbaumaßnahmen
+711,Hochbaumaßnahmen
+712,Hochbaumaßnahmen
+713,Hochbaumaßnahmen
+714,Hochbaumaßnahmen
+715,Hochbaumaßnahmen
+716,Hochbaumaßnahmen
+717,Hochbaumaßnahmen
+718,Hochbaumaßnahmen
+719,Hochbaumaßnahmen
+720,Hochbaumaßnahmen
+720,Hochbaumaßnahmen
+721,Hochbaumaßnahmen
+722,Hochbaumaßnahmen
+723,Hochbaumaßnahmen
+724,Hochbaumaßnahmen
+725,Hochbaumaßnahmen
+726,Hochbaumaßnahmen
+727,Hochbaumaßnahmen
+728,Hochbaumaßnahmen
+729,Hochbaumaßnahmen
+730,Hochbaumaßnahmen
+730,Hochbaumaßnahmen
+731,Hochbaumaßnahmen
+732,Hochbaumaßnahmen
+733,Hochbaumaßnahmen
+734,Hochbaumaßnahmen
+735,Hochbaumaßnahmen
+736,Hochbaumaßnahmen
+737,Hochbaumaßnahmen
+738,Hochbaumaßnahmen
+739,Hochbaumaßnahmen
+740,Tiefbaumaßnahmen
+741,Tiefbaumaßnahmen
+742,Tiefbaumaßnahmen
+743,Tiefbaumaßnahmen
+744,Tiefbaumaßnahmen
+745,Tiefbaumaßnahmen
+746,Tiefbaumaßnahmen
+747,Tiefbaumaßnahmen
+748,Tiefbaumaßnahmen
+749,Tiefbaumaßnahmen
+750,Tiefbaumaßnahmen
+750,Tiefbaumaßnahmen
+751,Tiefbaumaßnahmen
+752,Tiefbaumaßnahmen
+753,Tiefbaumaßnahmen
+754,Tiefbaumaßnahmen
+755,Tiefbaumaßnahmen
+756,Tiefbaumaßnahmen
+757,Tiefbaumaßnahmen
+758,Tiefbaumaßnahmen
+759,Tiefbaumaßnahmen
+760,Tiefbaumaßnahmen
+760,Tiefbaumaßnahmen
+761,Tiefbaumaßnahmen
+762,Tiefbaumaßnahmen
+763,Tiefbaumaßnahmen
+764,Tiefbaumaßnahmen
+765,Tiefbaumaßnahmen
+766,Tiefbaumaßnahmen
+767,Tiefbaumaßnahmen
+768,Tiefbaumaßnahmen
+769,Tiefbaumaßnahmen
+770,Tiefbaumaßnahmen
+770,Tiefbaumaßnahmen
+771,Tiefbaumaßnahmen
+772,Tiefbaumaßnahmen
+773,Tiefbaumaßnahmen
+774,Tiefbaumaßnahmen
+775,Tiefbaumaßnahmen
+776,Tiefbaumaßnahmen
+777,Tiefbaumaßnahmen
+778,Tiefbaumaßnahmen
+779,Tiefbaumaßnahmen
+780,Tiefbaumaßnahmen
+780,Tiefbaumaßnahmen
+781,Tiefbaumaßnahmen
+782,Tiefbaumaßnahmen
+783,Tiefbaumaßnahmen
+784,Tiefbaumaßnahmen
+785,Tiefbaumaßnahmen
+786,Tiefbaumaßnahmen
+787,Tiefbaumaßnahmen
+788,Tiefbaumaßnahmen
+789,Tiefbaumaßnahmen
+790,Andere Baumaßnahmen
+790,Globale Minderausgabe für Investitionen
+791,Andere Baumaßnahmen
+792,Andere Baumaßnahmen
+793,Andere Baumaßnahmen
+794,Andere Baumaßnahmen
+795,Andere Baumaßnahmen
+796,Andere Baumaßnahmen
+797,Andere Baumaßnahmen
+798,Andere Baumaßnahmen
+799,Bauvorbereitende und baubegleitende Kosten
+800,Sonstige Ausgaben für Investitionen und Investitionsförderungsmaßnahmen,#42928F
+810,Erwerb von beweglichen Sachen
+811,Erwerb von Fahrzeugen
+812,Erwerb von Geräten und sonstigen beweglichen Sachen
+820,Erwerb von unbeweglichen Sachen
+821,Grunderwerb
+823,Erwerb privat vorfinanzierter unbeweglicher Sachen
+830,Erwerb von Beteiligungen und dgl.
+831,Erwerb von Beteiligungen und dgl. im Inland
+836,Erwerb von Beteiligungen und dgl. im Ausland
+850,Darlehen an öffentlichen Bereich
+851,Darlehen an Bund
+852,Darlehen an Länder
+853,Darlehen an Gemeinden und Gemeindeverbände
+854,Darlehen an Sondervermögen
+856,Darlehen an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+857,Darlehen an Zweckverbände
+860,Darlehen an sonstige Bereiche
+861,Darlehen an öffentliche Unternehmen und Einrichtungen
+862,Darlehen an private Unternehmen
+863,Darlehen an Sonstige im Inland
+866,Darlehen an Ausland
+870,Inanspruchnahme aus Gewährleistungen
+871,Inanspruchnahme aus Gewährleistungen
+880,Zuweisungen für Investitionen an öffentlichen Bereich
+881,Zuweisungen für Investitionen an Bund
+882,Zuweisungen für Investitionen an Länder
+883,Zuweisungen für Investitionen an Gemeinden und Gemeindeverbände
+884,Zuweisungen für Investitionen an Sondervermögen
+886,Zuweisungen für Investitionen an Sozialversicherungsträger sowie an die Bundesanstalt für Arbeit
+887,Zuweisungen für Investitionen an Zweckverbände
+890,Zuschüsse für Investitionen an sonstige Bereiche
+891,Zuschüsse für Investitionen an öffentliche Unternehmen
+892,Zuschüsse für Investitionen an private Unternehmen
+893,Zuschüsse für Investitionen an Sonstige im Inland
+894,Zuschüsse für Investitionen an öffentliche Einrichtungen
+896,Zuschüsse für Investitionen an Ausland
+900,Besondere Finanzierungsausgaben,#CD531C
+910,"Zuführungen an Rücklagen, Fonds und Stöcke"
+911,Zuführungen an Ausgleichsrücklage
+912,Zuführungen an Betriebsmittelrücklage
+913,Zuführungen an Schuldendienstrücklage
+914,Zuführungen an Bürgschaftssicherungsrücklage
+915,Zuführungen an Konjunkturausgleichsrücklage
+916,Zuführungen an Fonds und Stöcke
+919,Zuführungen an sonstige Vermögensbestände
+960,Ausgaben zur Deckung von Fehlbeträgen aus Vorjahren
+961,Ausgaben zur Deckung von Fehlbeträgen aus Vorjahren
+970,Globale Mehr- und Minderausgaben
+971,Globale Mehrausgaben
+972,Globale Minderausgaben
+980,Haushaltstechnische Verrechnungen
+981,Verrechnungen zwischen Kapiteln
+982,Durchlaufende Posten
+989,Sonstige Verrechnungen
