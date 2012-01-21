@@ -10,10 +10,11 @@ from pprint import pprint
 from lxml import html
 from urlparse import urljoin
 
-from webstore.client import URL as WebStore
+import sqlaload as sl
+#from webstore.client import URL as WebStore
 
 BASE_URL = "http://www.bundesfinanzministerium.de/bundeshaushalt%s/html/ep00.html"
-UNIQUE_COLUMNS = ['year', 'flow', 'financial_type', 'id'] # 'commitment_year']
+UNIQUE_COLUMNS = ['year', 'flow', 'financial_type', 'titel_id'] # 'commitment_year']
 
 log = logging.getLogger(__name__)
 
@@ -30,33 +31,42 @@ def anchors(doc, rfilter):
         if match:
             yield (href, clean(a))
 
-def load_budget(base_url, year, table):
+def encode_val(v):
+    return v
+    if isinstance(v, bool):
+        return '1' if v else '0'
+    return unicode(v)
+
+def load_budget(base_url, year, engine, table):
     context = {'data_year': year}
     print "\nHaushalt: %s" % year
-    rows = []
+    i = 0
     for row in load_einzelplaene(base_url % year, context):
+        row['titel_id'] = row['id']
+        del row['id']
         row['remarks'] = "\n\n".join(row['remarks'])
-        commitment_appropriations = row['commitment_appropriations']
+        commitment_appropriations = row['commitment_appropriations'].copy()
         del row['commitment_appropriations']
-        row = dict([(k, unicode(v).encode('utf-8')) for k, v in row.items()])
-        #if row['year'] == str(year):
-        #    for year, amount in commitment_appropriations.items():
-        #        ca = row.copy()
-        #        ca['commitment_year'] = ca['year']
-        #        ca['year'] = year
-        #        ca['amount'] = amount
-        #        ca['financial_type'] = 'VE'
-        #        rows.append(ca)
-        rows.append(row)
-        if len(rows) > 100:
-            table.writerows(rows, unique_columns=UNIQUE_COLUMNS)
-            rows = []
-            sys.stdout.write('.')
-            sys.stdout.flush()
-    table.writerows(rows)
+        #if len(commitment_appropriations):
+        #    print len(commitment_appropriations)
+        #row = dict([(k, encode_val(v)) for k, v in row.items()])
+        if row['year'] == year:
+            for year, amount in commitment_appropriations.items():
+                ca = row.copy()
+                ca['commitment_year'] = ca['year']
+                ca['year'] = year
+                ca['amount'] = amount
+                ca['financial_type'] = 'VE'
+                ca['source_id'] = str(year) + "." + str(i)
+                sl.upsert(engine, table, ca, UNIQUE_COLUMNS)
+                i += 1
+        #pprint(row)
+        row['source_id'] = str(year) + "." + str(i)
+        sl.upsert(engine, table, row, UNIQUE_COLUMNS)
+        i += 1
 
 def expand_classifications(row):
-    id = row['id']
+    id = row['titel_id']
     row['hauptgruppe_id'] = id[4:5] + "00"
     row['obergruppe_id'] = id[4:6] + "0"
     row['gruppe_id'] = id[4:7]
@@ -69,6 +79,7 @@ def expand_classifications(row):
 def load_einzelplaene(url, context):
     doc = html.parse(url)
     for (href, label) in anchors(doc, "ep\d{2,}/ep\d{2,}.html"):
+        print " -> ", label.encode('utf-8')
         ep_url = urljoin(url, href)
         ep_context = context.copy()
         name = ep_context['ep_id'] = re.match('.*ep(\d*).html', ep_url).group(1)
@@ -183,7 +194,7 @@ def parse_posten(column, fin_type, year, context):
     return p
         
 
-re_YEAR = re.compile(".*(2\d{3}).*")
+re_YEAR = re.compile(".*(20\d{2}).*")
 def parse_section(section, context): 
     if not len(section.strip()): 
         return
@@ -191,14 +202,29 @@ def parse_section(section, context):
     h4 = doc.findtext('.//h4')
     assert h4 is not None, section.encode('utf-8')
     if u'Verpflichtungser' in h4:
+        #print section.encode('utf-8')
         capps = {}
-        for p in doc.findall('.//p'):
-            if u'davon fällig' in p.text: 
-                continue
-            year = re_YEAR.match(p.text)
-            if year is not None:
-                span = p.find('./span')
-                capps[int(year.group(1))] = handle_number(span.text)
+        if context['data_year'] >= 2012:
+            #print "VE", 
+            for row in doc.findall('.//tr'):
+                if not len(row.findall('td')) == 2:
+                    #print row
+                    continue
+                label, amt = row.findall('td')
+                label = label.xpath('string()').strip()
+                year = re_YEAR.match(label)
+                #print label.xpath('string()').encode('utf-8'), year
+                if year is not None:
+                    text = amt.xpath('string()')
+                    capps[int(year.group(1))] = handle_number(text)
+        else:
+            for p in doc.findall('.//p'):
+                if u'davon fällig' in p.text: 
+                    continue
+                year = re_YEAR.match(p.text)
+                if year is not None:
+                    span = p.find('./span')
+                    capps[int(year.group(1))] = handle_number(span.text)
         context['commitment_appropriations'] = capps
     elif u'Erläuterungen' in h4:
         context['description'] = section
@@ -210,9 +236,11 @@ def parse_section(section, context):
 
 
 if __name__ == '__main__': 
-    assert len(sys.argv)==2, "Need argument: webstore-url!"
-    db, table = WebStore(sys.argv[1], "raw")
-    for year in [2005, 2006, 2007, 2008, 2009, 2010, 2011]:
-        load_budget(BASE_URL, year, table)
+    assert len(sys.argv)==2, "Need argument: engine-url!"
+    engine = sl.connect(sys.argv[1])
+    table = sl.get_table(engine, 'bund')
+    for year in [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012]:
+    #for year in [2012]:
+        load_budget(BASE_URL, year, engine, table)
 
 

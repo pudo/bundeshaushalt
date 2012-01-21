@@ -1,16 +1,13 @@
 #coding: utf-8
 import sys
-from webstore.client import URL as WebStore
-from datautil.normalization.table_based import Normalizer
+import csv
+import sqlaload as sl
 from pprint import pprint
 
 from scrape import UNIQUE_COLUMNS
 
 FPL_DOC = "tljXl8WXu4oyTRCJ7YIaQDg"
 GPL_DOC = "tNbpClFqMRHmPwVwHajj4DA"
-
-GOOGLE_USER = None
-GOOGLE_PASS = None
 
 EP_COLORS = {
     "01": "#CA221D",
@@ -38,36 +35,31 @@ EP_COLORS = {
     "60": "#14388C"
 }
 
-def get_normalizer(doc_id, sheet_name, _cache={}):
-    global GOOGLE_PASS, GOOGLE_USER
-    if GOOGLE_USER is None or GOOGLE_PASS is None:
-        GOOGLE_USER = raw_input("Google Username: ")
-        GOOGLE_PASS = raw_input("Google Password: ")
-    if not (doc_id, sheet_name) in _cache:
-        _cache[(doc_id, sheet_name)] = Normalizer(GOOGLE_USER,
-            GOOGLE_PASS, doc_id, sheet_name, "id")
-    return _cache[(doc_id, sheet_name)]
+def load_csv_keys(file_name, key):
+    with open(file_name, 'r') as fh:
+        reader = csv.DictReader(fh)
+        data = list(reader)
+        r = [(d.get(key), d) for d in data]
+        return dict(r)
 
-def for_id(row_id):
-    row = {'id': row_id}
+def for_row(row, fpl, gpl):
+    row_id = row.get('titel_id')
     def _classify(normalizer, name, id):
         row[name + "_id"] = id
-        values = normalizer.lookup(id)
+        values = normalizer.get(id)
         if not values:
             return
-        label = values.get('name')
+        label = values.get('Name')
         if label:
-            row[name + "_label"] = label.encode('utf-8').strip()
+            row[name + "_label"] = label.decode('utf-8').strip()
         else:
             row[name + "_label"] = ""
-        row[name + "_color"] = values.get('color', '')
-        description = values.get('description')
+        row[name + "_color"] = values.get('Color', '')
+        description = values.get('Description')
         if description:
-            row[name + "_desc"] = description.encode('utf-8').strip()
+            row[name + "_description"] = description.decode('utf-8').strip()
         else: 
-            row[name + "_desc"] = ""
-    gpl = get_normalizer(GPL_DOC, 'Gruppierungsplan')
-    fpl = get_normalizer(FPL_DOC, 'Funktionenplan')
+            row[name + "_description"] = ""
     _classify(gpl, 'hauptgruppe', row_id[4:5] + "00")
     _classify(gpl, 'obergruppe', row_id[4:5] + "0")
     _classify(gpl, 'gruppe', row_id[4:7])
@@ -75,16 +67,17 @@ def for_id(row_id):
     _classify(fpl, 'oberfunktion', row_id[10:12] + "0")
     _classify(fpl, 'funktion', row_id[10:13])
     row['ep_color'] = EP_COLORS[row_id[:2]]
-    pprint(row)
+    #pprint(row)
     return row
 
-def process_file(table):
-    for _id in table.distinct('id'):
-        id = _id.get('id')
-        table.writerow(for_id(id), 
-                 unique_columns=['id'])
+def process(engine, table):
+    gpl = load_csv('gruppierungsplan.csv', 'ID')
+    fpl = load_csv('funktionenplan.csv', 'ID')
+    for row in sl.all(engine, table):
+        sl.upsert(engine, table, for_row(row, fpl, gpl), ['id'])
 
 if __name__ == '__main__':
-    assert len(sys.argv)==2, "Need argument: webstore-url!"
-    db, table = WebStore(sys.argv[1], "raw")
-    process_file(table)
+    assert len(sys.argv)==2, "Need argument: engine-url!"
+    engine = sl.connect(sys.argv[1])
+    table = sl.get_table(engine, 'bund')
+    process(engine, table)

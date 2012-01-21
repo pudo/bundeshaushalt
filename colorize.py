@@ -30,10 +30,10 @@ def _color_range(color, slices, var=70.0):
                             color_part(cv[1], n), 
                             color_part(cv[2], n)))
 
-def process_file(table, key_column, color_column, subkey_column, subcolor_column):
+def process(engine, table, key_column, color_column, subkey_column, subcolor_column):
     children = defaultdict(set)
     key_colors = {}
-    for row in table:
+    for row in sl.all(engine, table):
         key = row.get(key_column)
         key_colors[key] = row.get(color_column)
         children[key].add(row.get(subkey_column))
@@ -42,25 +42,26 @@ def process_file(table, key_column, color_column, subkey_column, subcolor_column
         gen = _color_range(key_colors.get(key), len(children[key]))
         for sub, col in zip(children[key], gen):
             sub_colors[(key, sub)] = col
-    for row in table:
+    for row in sl.all(engine, table):
          ks = (row.get(key_column), row.get(subkey_column))
          row[subcolor_column] = sub_colors[ks]
          #pprint(row)
-         table.writerow(row, unique_columns=['__id__'])
+         sl.upsert(engine, table, row, ['id'])
 
 if __name__ == '__main__':
-    assert len(sys.argv)==2, "Need argument: webstore-url!"
-    db, table = WebStore(sys.argv[1], "raw")
+    assert len(sys.argv)==2, "Need argument: engine-url!"
+    engine = sl.connect(sys.argv[1])
+    table = sl.get_table(engine, 'bund')
 
-    process_file(table, "ep_id", "ep_color", "kp_id", "kp_color")
-    process_file(table, "ep_id", "ep_color", "tgr_id", "tgr_color")
-    process_file(table, "ep_id", "ep_color", "id", "color")
-    process_file(table, "hauptfunktion_id", "hauptfunktion_color", 
+    process(engine, table, "ep_id", "ep_color", "kp_id", "kp_color")
+    process(engine, table, "ep_id", "ep_color", "tgr_id", "tgr_color")
+    process(engine, table, "ep_id", "ep_color", "id", "color")
+    process(engine, table, "hauptfunktion_id", "hauptfunktion_color", 
             "oberfunktion_id", "oberfunktion_color")
-    process_file(table, "oberfunktion_id", "oberfunktion_color", 
+    process(engine, table, "oberfunktion_id", "oberfunktion_color", 
             "funktion_id", "funktion_color")
-    process_file(table, "hauptgruppe_id", "hauptgruppe_color", 
+    process(engine, table, "hauptgruppe_id", "hauptgruppe_color", 
             "obergruppe_id", "obergruppe_color")
-    process_file(table, "obergruppe_id", "obergruppe_color", 
+    process(engine, table, "obergruppe_id", "obergruppe_color", 
             "gruppe_id", "gruppe_color")
 
