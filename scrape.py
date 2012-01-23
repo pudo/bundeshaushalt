@@ -14,7 +14,7 @@ import sqlaload as sl
 #from webstore.client import URL as WebStore
 
 BASE_URL = "http://www.bundesfinanzministerium.de/bundeshaushalt%s/html/ep00.html"
-UNIQUE_COLUMNS = ['year', 'flow', 'financial_type', 'titel_id'] # 'commitment_year']
+UNIQUE_COLUMNS = ['year', 'flow', 'financial_type', 'titel_id', 'commitment_year']
 
 log = logging.getLogger(__name__)
 
@@ -48,22 +48,23 @@ def load_budget(base_url, year, engine, table):
         commitment_appropriations = row['commitment_appropriations'].copy()
         del row['commitment_appropriations']
         #if len(commitment_appropriations):
-        #    print len(commitment_appropriations)
-        #row = dict([(k, encode_val(v)) for k, v in row.items()])
-        if row['year'] == year:
-            for year, amount in commitment_appropriations.items():
-                ca = row.copy()
-                ca['commitment_year'] = ca['year']
-                ca['year'] = year
-                ca['amount'] = amount
-                ca['financial_type'] = 'VE'
-                ca['source_id'] = str(year) + "." + str(i)
-                sl.upsert(engine, table, ca, UNIQUE_COLUMNS)
-                i += 1
-        #pprint(row)
+        #    #print len(commitment_appropriations)
+        
+        row['commitment_year'] = None
         row['source_id'] = str(year) + "." + str(i)
         sl.upsert(engine, table, row, UNIQUE_COLUMNS)
         i += 1
+
+        for year, amount in commitment_appropriations.items():
+            ca = row.copy()
+            ca['commitment_year'] = context['data_year']
+            ca['year'] = year
+            ca['amount'] = amount
+            ca['financial_type'] = 'VE'
+            ca['source_id'] = str(year) + "." + str(i)
+            sl.upsert(engine, table, ca, UNIQUE_COLUMNS)
+            i += 1
+        #pprint(row)
 
 def expand_classifications(row):
     id = row['titel_id']
@@ -134,18 +135,19 @@ def load_posten_row(row, context):
     entries = []
     for i, column in enumerate(row.findall('./td')):
         if i == 0:
-            name = column.xpath("string()")
+            name = column.xpath("string()").strip()
             if not len(name):
                 break
             if 'Tgr' in name:
                 break
-            if name.startswith('F '):
+            if 'F ' in name:
                 pcontext['flexible'] = True
-                name = name[1:]
+                #name = name[1:]
             else: 
                 pcontext['flexible'] = False
             name = [c for c in name if c in '-0123456789']
             if not len(name) == 9:
+                #print "FAIL NAME", name
                 break
             name = pcontext.get('kp_id') + "".join(name)
             pcontext['id'] = name.strip()
@@ -157,7 +159,7 @@ def load_posten_row(row, context):
                     parse_section(section, pcontext)
                     section = ""
                 elif 'title' in elem.keys() and \
-                    elem.get('title').startswith('PDF Dokument'):
+                    elem.get('title').strip().startswith('PDF'):
                     pcontext['pdf'] = urljoin(pcontext.get('url'), elem.get('href'))
                 else:
                     section += html.tostring(elem).strip()
@@ -192,7 +194,6 @@ def parse_posten(column, fin_type, year, context):
     p = {'financial_type': fin_type, 'year': year}
     p['amount'] = handle_number(column.text)
     return p
-        
 
 re_YEAR = re.compile(".*(20\d{2}).*")
 def parse_section(section, context): 
