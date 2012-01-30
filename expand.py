@@ -71,8 +71,8 @@ def for_row(row, fpl, gpl):
     return row
 
 def process(engine, table):
-    gpl = load_csv('gruppierungsplan.csv', 'ID')
-    fpl = load_csv('funktionenplan.csv', 'ID')
+    gpl = load_csv_keys('gruppierungsplan.csv', 'ID')
+    fpl = load_csv_keys('funktionenplan.csv', 'ID')
     for row in sl.all(engine, table):
         sl.upsert(engine, table, for_row(row, fpl, gpl), ['id'])
 

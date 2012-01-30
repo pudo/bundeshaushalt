@@ -3,7 +3,7 @@ import sys
 from pprint import pprint
 from collections import defaultdict
 
-from webstore.client import URL as WebStore
+import sqlaload as sl
 
 # color range generator:    
 def hex_to_tuple(val, alpha=False):
@@ -22,6 +22,8 @@ def tuple_to_hex(tup):
     return "#" + "%02x%02x%02x" % (int(tup[0]), int(tup[1]), int(tup[2]))
 
 def _color_range(color, slices, var=70.0):
+    if color is None:
+        color = '#cccccc'
     slice_value = lambda n: ((var*2)/slices)*n
     color_part = lambda c, n: max(0, min(255, (c-var)+slice_value(n)))
     cv = hex_to_tuple(color)
