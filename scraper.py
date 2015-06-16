@@ -1,3 +1,4 @@
+import re
 import dataset
 # from pprint import pprint
 from collections import defaultdict
@@ -6,8 +7,15 @@ import requests
 engine = dataset.connect('sqlite:///data.sqlite')
 table = engine['data']
 
+CLEAN = re.compile('(</?strong>)')
 DIMENSIONS = ['einzelplan', 'gruppe', 'funktion']
 URL = 'http://www.bundeshaushalt-info.de/rest/%s/soll/%s/%s/%s'
+
+
+def clean_text(text):
+    if text is None:
+        return
+    return CLEAN.sub('', text).strip()
 
 
 def tree_scrape(titles, ctx, year, flow, section, address=''):
@@ -29,8 +37,8 @@ def tree_scrape(titles, ctx, year, flow, section, address=''):
                 data.get('meta').get('levelMax'):
             titles[child.get('a')]['value'] = int(child.get('v'))
             titles[child.get('a')]['flexible'] = child.get('f')
-            titles[child.get('a')]['title'] = child.get('l')
-            titles[child.get('a')]['name'] = child.get('t')
+            titles[child.get('a')]['title'] = clean_text(child.get('l'))
+            titles[child.get('a')]['name'] = clean_text(child.get('t'))
             titles[child.get('a')]['address'] = child.get('a')
             titles[child.get('a')].update(ctx.copy())
         else:

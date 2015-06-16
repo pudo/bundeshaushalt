@@ -1,0 +1,11 @@
+common:
+  database: "sqlite:///data.sqlite"
+  prefix: data/
+  format: csv
+
+exports:
+  - query: "SELECT * FROM data"
+    filename: "bundeshaushalt.csv"
+
+  - query: "SELECT * FROM data"
+    filename: "bundeshaushalt_{{year}}.csv"

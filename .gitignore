@@ -4,3 +4,4 @@ csv/*
 *.pyc
 .DS_Store
 data.sqlite
+env/*
