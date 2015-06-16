@@ -1,6 +1,6 @@
 full/*
 final/*
 csv/*
-*.csv
 *.pyc
 .DS_Store
+data.sqlite
