@@ -1,2 +1,0 @@
-psycopg2
--e git+https://github.com/okfn/sqlaload#egg=sqlaload
