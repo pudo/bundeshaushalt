@@ -4,8 +4,20 @@ common:
   format: csv
 
 exports:
-  - query: "SELECT * FROM data"
-    filename: "bundeshaushalt.csv"
+  - filename: "bundeshaushalt.csv" 
+    query: >
+        SELECT flow, year, funktion_3_title, funktion_3_address, einzelplan_1_title, gruppe_2_address, gruppe_3_address,
+            gruppe_2_title, gruppe_1_address, einzelplan_1_address, funktion_2_title, name, title, gruppe_1_title,
+            einzelplan_2_address, funktion_1_title, funktion_2_address, gruppe_3_title, einzelplan_2_title, funktion_1_address,
+            case when flexible THEN 'flexibel' ELSE 'nicht-flexibel' END AS flexible,
+            value * 1000 AS amount
+            FROM data ORDER BY year, name ASC;
 
-  - query: "SELECT * FROM data"
-    filename: "bundeshaushalt_{{year}}.csv"
+  - filename: "bundeshaushalt_{{year}}.csv"
+    query: >
+        SELECT flow, year, funktion_3_title, funktion_3_address, einzelplan_1_title, gruppe_2_address, gruppe_3_address,
+            gruppe_2_title, gruppe_1_address, einzelplan_1_address, funktion_2_title, name, title, gruppe_1_title,
+            einzelplan_2_address, funktion_1_title, funktion_2_address, gruppe_3_title, einzelplan_2_title, funktion_1_address,
+            case when flexible THEN 'flexibel' ELSE 'nicht-flexibel' END AS flexible,
+            value * 1000 AS amount
+            FROM data ORDER BY year, name ASC;
