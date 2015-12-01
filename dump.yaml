@@ -11,7 +11,7 @@ exports:
             einzelplan_2_address, funktion_1_title, funktion_2_address, gruppe_3_title, einzelplan_2_title, funktion_1_address,
             case when flexible THEN 'flexibel' ELSE 'nicht-flexibel' END AS flexible,
             value * 1000 AS amount
-            FROM data ORDER BY year, name ASC;
+            FROM de_bundeshaushalt ORDER BY year, name ASC;
 
   - filename: "bundeshaushalt_{{year}}.csv"
     query: >
@@ -20,4 +20,4 @@ exports:
             einzelplan_2_address, funktion_1_title, funktion_2_address, gruppe_3_title, einzelplan_2_title, funktion_1_address,
             case when flexible THEN 'flexibel' ELSE 'nicht-flexibel' END AS flexible,
             value * 1000 AS amount
-            FROM data ORDER BY year, name ASC;
+            FROM de_bundeshaushalt ORDER BY year, name ASC;

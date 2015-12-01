@@ -1,11 +1,13 @@
+import os
 import re
 import dataset
 # from pprint import pprint
 from collections import defaultdict
 import requests
 
-engine = dataset.connect('sqlite:///data.sqlite')
-table = engine['data']
+db = os.environ.get('DATABASE_URI', 'sqlite:///data.sqlite')
+engine = dataset.connect(db)
+table = engine['de_bundeshaushalt']
 
 CLEAN = re.compile('(</?strong>)')
 DIMENSIONS = ['einzelplan', 'gruppe', 'funktion']
